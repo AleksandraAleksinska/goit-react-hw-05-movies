@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 
 const Movies = () => {
 
-    const [ query, setQuery ] = useState('');
-    
+   
+
 
   return (
     <Fragment>
