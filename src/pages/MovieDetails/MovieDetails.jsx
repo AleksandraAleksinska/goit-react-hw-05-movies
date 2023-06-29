@@ -11,7 +11,7 @@ const MovieDetails = () => {
     const { movieId } = useParams();
     const [ movieDetailsById, setMovieDetailsById ] = useState([]);
     const [ movieGenres, setMovieGenres ] = useState([]);
-    const [ movieReleaseYear, setMovieReleaseYear ] = useState('')
+    const [ movieReleaseYear, setMovieReleaseYear ] = useState('');
     
   
     useEffect(() => {
