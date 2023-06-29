@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react'
 
 const Movies = () => {
+
+    const [ query, setQuery ] = useState('');
+    
+
   return (
-    <div>Movies</div>
+    <Fragment>
+        <form>
+            <input></input>
+            <button type='submit'>Search</button>
+        </form>
+    </Fragment>
   )
 }
 
