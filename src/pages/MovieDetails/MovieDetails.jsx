@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect, Fragment } from 'react';
-import { useParams, Link } from "react-router-dom";
-import { getMovieById } from 'utils/trendingMovies';
+import { useParams, Link, Outlet } from "react-router-dom";
+
 import axios from 'axios';
 
 
@@ -60,6 +60,7 @@ const MovieDetails = () => {
               <Link to='reviews'>Reviews</Link>
             </li>
           </ul>
+          <Outlet />
         </div>
 
     </Fragment>
