@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect, Fragment } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getMovieById } from 'utils/trendingMovies';
 import axios from 'axios';
 
@@ -49,6 +49,17 @@ const MovieDetails = () => {
           <p>{movieDetailsById.overview}</p>
           <h4>Genres</h4>
           <p>genres</p>
+        </div>
+        <div>
+          <p>Additional information</p>
+          <ul>
+            <li>
+              <Link to='cast'>Cast</Link>
+            </li>
+            <li>
+              <Link to='reviews'>Reviews</Link>
+            </li>
+          </ul>
         </div>
 
     </Fragment>
