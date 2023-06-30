@@ -1,6 +1,6 @@
 import React from 'react';
-import { useState, useEffect, Fragment } from 'react';
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useState, useEffect, Fragment, Suspense } from 'react';
+import { useParams, Link, Outlet, useNavigate } from "react-router-dom";
 
 import axios from 'axios';
 
@@ -14,6 +14,9 @@ const MovieDetails = () => {
     const [ movieReleaseYear, setMovieReleaseYear ] = useState('');
     
   
+    const navigate = useNavigate();
+    const goBack = () => navigate(-1)
+
     useEffect(() => {
 
       const getMovieDetails = async() => {
@@ -43,6 +46,10 @@ const MovieDetails = () => {
   return (
       
     <Fragment>
+        
+        <button onClick={goBack}>Go back</button>
+        
+        
         <div>
           <img src={`https://image.tmdb.org/t/p/w500/${movieDetailsById.poster_path}`} alt={movieDetailsById.title} />
           <div>
@@ -64,7 +71,9 @@ const MovieDetails = () => {
               <Link to='reviews'>Reviews</Link>
             </li>
           </ul>
-          <Outlet />
+          <Suspense fallback={'Loading...'}>
+            <Outlet />
+          </Suspense>
         </div>
 
     </Fragment>

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useSearchParams, Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -7,34 +7,40 @@ const Movies = () => {
     const key = 'dce0b8b37fbd78cdab3203c47fa0e91b';
     const [ searchParams, setSearchParams ] = useSearchParams();
     const [ moviesByQuery, setMoviesByQuery ] = useState([]);
-    const query = searchParams.get("query") ?? '';
+    // const [ searchQuery, setSearchQuery ] = useState('');
+    
+    const query = searchParams.get("query") || '';
     
 
-    useEffect(() => {
+    // useEffect(() => {
 
+        
+        
+    //     getMoviesByQuery()
+    // }, [query])
+
+    const getMoviesByQuery = async() => {
         if(query ==='') return;
-        const getMoviesByQuery = async() => {
-            try {
-                const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${key}`);
-                const movies = response.data.results;
-                setMoviesByQuery(movies);
-            }
-            catch (error) {
-                console.log(error.message)
-            }
+        try {
+            const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${key}`);
+            const movies = response.data.results;
+            setMoviesByQuery(movies);
         }
-        getMoviesByQuery()
-    }, [query])
+        catch (error) {
+            console.log(error.message)
+        }
+    }
 
     const handleChange = (e) => {
         setSearchParams({ query: e.target.value })
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.currentTarget;
-        setSearchParams({ name: form.elements.query.value });
-        form.reset();
+               
+        getMoviesByQuery()
+        form.reset()
       };
 
 
