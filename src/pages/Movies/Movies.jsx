@@ -18,7 +18,6 @@ const Movies = () => {
                 const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${key}`);
                 const movies = response.data.results;
                 setMoviesByQuery(movies);
-                console.log(movies)
             }
             catch (error) {
                 console.log(error.message)
@@ -35,7 +34,6 @@ const Movies = () => {
         e.preventDefault();
         const form = e.currentTarget;
         setSearchParams({ name: form.elements.query.value });
-        console.log(moviesByQuery)
         form.reset();
       };
 

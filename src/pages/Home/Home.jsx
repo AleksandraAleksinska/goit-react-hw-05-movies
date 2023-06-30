@@ -11,8 +11,6 @@ const Home = () => {
 
   useEffect(() => {
     getTrendingMovies().then((response) => {
-      
-      console.log(response)
       setTrendingMovies([...response]);
     })
     

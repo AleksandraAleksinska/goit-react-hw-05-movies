@@ -35,7 +35,7 @@ const Reviews = () => {
       return <li key={review.id}>
         <p>Author: {review.author}</p>
         <p> {review.content}</p>
-        </li>}): <p> 'We don't have any reviews for thi movie'</p>}
+        </li>}): <p>'We don't have any reviews for this movie'</p>}
       </ul>
     </Fragment>
   )
