@@ -1,13 +1,27 @@
 {
   "files": {
     "main.css": "/goit-react-hw-05-movies/static/css/main.7acaea2f.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.5f770876.js",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.fb406feb.js",
+    "static/js/997.7b71fe7d.chunk.js": "/goit-react-hw-05-movies/static/js/997.7b71fe7d.chunk.js",
+    "static/js/278.0d65b288.chunk.js": "/goit-react-hw-05-movies/static/js/278.0d65b288.chunk.js",
+    "static/js/961.cc66c9b6.chunk.js": "/goit-react-hw-05-movies/static/js/961.cc66c9b6.chunk.js",
+    "static/js/115.68fc742e.chunk.js": "/goit-react-hw-05-movies/static/js/115.68fc742e.chunk.js",
+    "static/js/871.3c720cae.chunk.js": "/goit-react-hw-05-movies/static/js/871.3c720cae.chunk.js",
+    "static/js/256.b4fc3da0.chunk.js": "/goit-react-hw-05-movies/static/js/256.b4fc3da0.chunk.js",
+    "static/js/279.2c004ea1.chunk.js": "/goit-react-hw-05-movies/static/js/279.2c004ea1.chunk.js",
     "index.html": "/goit-react-hw-05-movies/index.html",
     "main.7acaea2f.css.map": "/goit-react-hw-05-movies/static/css/main.7acaea2f.css.map",
-    "main.5f770876.js.map": "/goit-react-hw-05-movies/static/js/main.5f770876.js.map"
+    "main.fb406feb.js.map": "/goit-react-hw-05-movies/static/js/main.fb406feb.js.map",
+    "997.7b71fe7d.chunk.js.map": "/goit-react-hw-05-movies/static/js/997.7b71fe7d.chunk.js.map",
+    "278.0d65b288.chunk.js.map": "/goit-react-hw-05-movies/static/js/278.0d65b288.chunk.js.map",
+    "961.cc66c9b6.chunk.js.map": "/goit-react-hw-05-movies/static/js/961.cc66c9b6.chunk.js.map",
+    "115.68fc742e.chunk.js.map": "/goit-react-hw-05-movies/static/js/115.68fc742e.chunk.js.map",
+    "871.3c720cae.chunk.js.map": "/goit-react-hw-05-movies/static/js/871.3c720cae.chunk.js.map",
+    "256.b4fc3da0.chunk.js.map": "/goit-react-hw-05-movies/static/js/256.b4fc3da0.chunk.js.map",
+    "279.2c004ea1.chunk.js.map": "/goit-react-hw-05-movies/static/js/279.2c004ea1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.5f770876.js"
+    "static/js/main.fb406feb.js"
   ]
 }
