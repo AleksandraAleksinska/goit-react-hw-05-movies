@@ -51,7 +51,9 @@ const MovieDetails = () => {
         
         
         <div>
+        {movieDetailsById.poster_path && (
           <img src={`https://image.tmdb.org/t/p/w500/${movieDetailsById.poster_path}`} alt={movieDetailsById.title} />
+        )}
           <div>
             <h2>{movieDetailsById.title} ({movieReleaseYear.slice(0,4)})</h2>
             <p>User score: {movieDetailsById.popularity}</p>
@@ -71,7 +73,7 @@ const MovieDetails = () => {
               <Link to='reviews'>Reviews</Link>
             </li>
           </ul>
-          <Suspense fallback={'Loading...'}>
+          <Suspense fallback={<p>'Loading...'</p>}>
             <Outlet />
           </Suspense>
         </div>
