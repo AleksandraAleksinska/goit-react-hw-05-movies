@@ -1,7 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import { useState, useEffect, Fragment } from 'react';
 import { Link } from "react-router-dom";
-import { getTrendingMovies } from 'utils/trendingMovies';
+
 
 
 const Home = () => {  
@@ -10,10 +11,20 @@ const Home = () => {
   
 
   useEffect(() => {
-    getTrendingMovies().then((response) => {
-      setTrendingMovies([...response]);
-    })
-    
+
+   const getTrendingMovies = async() => {
+
+      try {
+          const key = 'dce0b8b37fbd78cdab3203c47fa0e91b';
+          const response = await axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=' + key);
+          const trendingMovies = response.data.results;
+          setTrendingMovies(trendingMovies);
+      }
+      catch(error) {
+          console.log(error.message);
+      }    
+  }   
+  getTrendingMovies();
     
   },[])
   
@@ -26,8 +37,7 @@ const Home = () => {
         <li key={movie.id}>
           <Link to={`/movies/${movie.id}`}>
           {movie.title}
-          </Link>
-          
+          </Link>  
         </li>
            
       )}

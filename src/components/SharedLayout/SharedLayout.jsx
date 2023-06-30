@@ -5,13 +5,13 @@ import { Suspense } from 'react';
 const SharedLayout = () => {
   return (
     <header>
-        <nav>
+      <nav>
         <Link to='/'>Home</Link>
         <Link to='/movies'>Movies</Link>
-        </nav>
-    <Suspense to={<p>Loading...</p>}>
-    <Outlet/>
-    </Suspense>
+      </nav>
+      <Suspense to={<p>Loading...</p>}>
+        <Outlet/>
+      </Suspense>
     </header>
   )
 }

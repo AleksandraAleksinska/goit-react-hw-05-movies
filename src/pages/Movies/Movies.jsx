@@ -7,17 +7,10 @@ const Movies = () => {
     const key = 'dce0b8b37fbd78cdab3203c47fa0e91b';
     const [ searchParams, setSearchParams ] = useSearchParams();
     const [ moviesByQuery, setMoviesByQuery ] = useState([]);
-    // const [ searchQuery, setSearchQuery ] = useState('');
+    
     
     const query = searchParams.get("query") || '';
     
-
-    // useEffect(() => {
-
-        
-        
-    //     getMoviesByQuery()
-    // }, [query])
 
     const getMoviesByQuery = async() => {
         if(query ==='') return;
@@ -56,11 +49,11 @@ const Movies = () => {
         </form>
         <ul>
         {moviesByQuery.map((movie) => 
-      <li key={movie.id}>
-        <Link to={`/movies/${movie.id}`}>
-          {movie.title}
-          </Link>
-    </li>)}
+            <li key={movie.id}>
+                <Link to={`/movies/${movie.id}`}>
+                    {movie.title}
+                </Link>
+            </li>)}
         </ul>
     </Fragment>
   )

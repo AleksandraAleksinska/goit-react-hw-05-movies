@@ -12,6 +12,7 @@ const MovieDetails = () => {
     const [ movieDetailsById, setMovieDetailsById ] = useState([]);
     const [ movieGenres, setMovieGenres ] = useState([]);
     const [ movieReleaseYear, setMovieReleaseYear ] = useState('');
+    const [ userScore, setUserScore ] = useState(null)
     
   
     const navigate = useNavigate();
@@ -27,10 +28,12 @@ const MovieDetails = () => {
           const movieDetails = response.data;
           const movieGenres = response.data.genres;
           const movieReleaseYear = response.data.release_date;
+          const movieUserScore = response.data.vote_average;
        
           setMovieDetailsById(movieDetails);
           setMovieGenres(movieGenres);
           setMovieReleaseYear(movieReleaseYear);
+          setUserScore(movieUserScore)
 
         }
         catch(error) {
@@ -46,17 +49,14 @@ const MovieDetails = () => {
   return (
       
     <Fragment>
-        
         <button onClick={goBack}>Go back</button>
-        
-        
         <div>
         {movieDetailsById.poster_path && (
           <img src={`https://image.tmdb.org/t/p/w500/${movieDetailsById.poster_path}`} alt={movieDetailsById.title} />
         )}
           <div>
             <h2>{movieDetailsById.title} ({movieReleaseYear.slice(0,4)})</h2>
-            <p>User score: {movieDetailsById.popularity}</p>
+            <p>User score: {Number(userScore).toFixed(2)}</p>
             <h3>Overview</h3>
             <p>{movieDetailsById.overview}</p>
            <h4>Genres</h4>
@@ -77,7 +77,6 @@ const MovieDetails = () => {
             <Outlet />
           </Suspense>
         </div>
-
     </Fragment>
   )
 }
