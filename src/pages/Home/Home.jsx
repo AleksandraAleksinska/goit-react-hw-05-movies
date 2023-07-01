@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect, Fragment } from 'react';
 import { Link } from "react-router-dom";
+import css from './Home.module.css';
 
 
 
@@ -30,12 +31,12 @@ const Home = () => {
   
   return (
     <Fragment>
-      <h3>Trending today</h3>
-      <ul>
+      <h3 className={css.header}>Trending today</h3>
+      <ul className={css.movieList}>
       {trendingMovies.map((movie) => 
       
-        <li key={movie.id}>
-          <Link to={`/movies/${movie.id}`}>
+        <li className={css.movieListItem} key={movie.id}>
+          <Link className={css.movieLink} to={`/movies/${movie.id}`}>
           {movie.title}
           </Link>  
         </li>

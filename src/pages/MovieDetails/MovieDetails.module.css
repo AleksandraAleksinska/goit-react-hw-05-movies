@@ -1,0 +1,8 @@
+.movieImg {
+    width: 340px;
+    height: 480px;
+}
+.movieDetailsBox{
+    display: flex;
+    gap: 10px;
+}

@@ -31,7 +31,9 @@ const Cast = () => {
     <Fragment>
       <ul>
       {movieCastById.map((actor) => <li key={actor.id}>
-        <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} alt={actor.name} />
+      {actor.profile_path && (
+            <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} alt={actor.name} />
+          )}
         <p>{actor.name}</p>
         <p>Character: {actor.character}</p>
         </li>)}

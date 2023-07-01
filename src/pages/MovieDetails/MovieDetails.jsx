@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect, Fragment, Suspense } from 'react';
 import { useParams, Link, Outlet, useNavigate } from "react-router-dom";
+import css from './MovieDetails.module.css'
 
 import axios from 'axios';
 
@@ -16,7 +17,10 @@ const MovieDetails = () => {
     
   
     const navigate = useNavigate();
-    const goBack = () => navigate(-1)
+    const goBack = () => {
+      navigate(-1);
+      
+    }
 
     useEffect(() => {
 
@@ -50,13 +54,13 @@ const MovieDetails = () => {
       
     <Fragment>
         <button onClick={goBack}>Go back</button>
-        <div>
+        <div className={css.movieDetailsBox}>
         {movieDetailsById.poster_path && (
-          <img src={`https://image.tmdb.org/t/p/w500/${movieDetailsById.poster_path}`} alt={movieDetailsById.title} />
+          <img className={css.movieImg} src={`https://image.tmdb.org/t/p/w500/${movieDetailsById.poster_path}`} alt={movieDetailsById.title} />
         )}
           <div>
             <h2>{movieDetailsById.title} ({movieReleaseYear.slice(0,4)})</h2>
-            <p>User score: {Number(userScore).toFixed(2)}</p>
+            <p>User score: <b>{Number(userScore).toFixed(2)}</b></p>
             <h3>Overview</h3>
             <p>{movieDetailsById.overview}</p>
            <h4>Genres</h4>
