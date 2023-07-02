@@ -22,7 +22,7 @@ const MovieDetails = () => {
       if (location.state?.from) {
         navigate(location.state.from);
       } else {
-        navigate(locationRef.current.state.from);
+        navigate(locationRef.current.state.from); 
       } 
     };
       
