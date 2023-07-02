@@ -53,7 +53,7 @@ const MovieDetails = () => {
   return (
       
     <Fragment>
-        <button onClick={goBack}>Go back</button>
+        <button className={css.backButton} onClick={goBack}>Go back</button>
         <div className={css.movieDetailsBox}>
         {movieDetailsById.poster_path && (
           <img className={css.movieImg} src={`https://image.tmdb.org/t/p/w500/${movieDetailsById.poster_path}`} alt={movieDetailsById.title} />

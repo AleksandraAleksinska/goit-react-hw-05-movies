@@ -1,14 +1,15 @@
 import React from 'react';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import { Suspense } from 'react';
-import css from './SharedLayout.module.css'
+import css from './SharedLayout.module.css';
+
 
 const SharedLayout = () => {
   return (
     <header >
       <nav className={css.nav}>
-        <Link to='/'><button className={css.navButton}>Home</button></Link>
-        <Link to='/movies'><button className={css.navButton}>Movies</button></Link>
+        <NavLink className={(navData) => (navData.isActive ? css.active : css.navLink)} to='/'>Home</NavLink>
+        <NavLink className={(navData) => (navData.isActive ? css.active : css.navLink)} to='/movies'>Movies</NavLink>
       </nav>
       <Suspense to={<p>Loading...</p>}>
         <Outlet/>

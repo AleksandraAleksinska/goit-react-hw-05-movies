@@ -6,3 +6,21 @@
     display: flex;
     gap: 10px;
 }
+.backButton {
+    margin-bottom: 15px;
+    margin-left: 15px;
+    cursor: pointer;
+    padding-block: 3px;
+    padding-inline: 10px;
+    box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+    &:hover {
+        background-color: rgb(216, 156, 44);
+        color:white;
+        border-color: transparent;
+        padding-inline: 18px;
+        padding-block: 4px;
+        margin-bottom: 13px;
+    }
+}

@@ -26,3 +26,12 @@
     }   
 }
 
+.navLink {
+    text-decoration: none;
+}
+.active {
+    color: rgb(219, 95, 0);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+  }
