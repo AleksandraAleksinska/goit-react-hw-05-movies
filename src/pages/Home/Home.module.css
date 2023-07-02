@@ -1,23 +1,4 @@
 .header {
     margin-left: 30px;
 }
-.movieList{
-    display:flex;
-    flex-direction: column;
-    gap:5px;
-    
-}
-.movieListItem{
-    &:hover{
-        
-        color:rgb(183, 119, 35)
-    }
-}
-.movieLink {
-    text-decoration: none;
-    &:hover{
-        font-size: 18px;
-        font-weight: bold;
-        color:rgb(225, 162, 66)
-}
-}
+

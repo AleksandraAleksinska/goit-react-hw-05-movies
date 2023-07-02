@@ -1,10 +1,8 @@
 import React from 'react';
-import { useState, useEffect, Fragment, Suspense } from 'react';
-import { useParams, Link, Outlet, useNavigate } from "react-router-dom";
+import { useState, useEffect, Fragment, Suspense, useRef } from 'react';
+import { useParams, NavLink, Outlet, useNavigate, useLocation } from "react-router-dom";
 import css from './MovieDetails.module.css'
-
 import axios from 'axios';
-
 
 
 const MovieDetails = () => {
@@ -15,12 +13,19 @@ const MovieDetails = () => {
     const [ movieReleaseYear, setMovieReleaseYear ] = useState('');
     const [ userScore, setUserScore ] = useState(null)
     
-  
+    const location = useLocation()
     const navigate = useNavigate();
+    const locationRef = useRef(location);
+
+
     const goBack = () => {
-      navigate(-1);
+      if (location.state?.from) {
+        navigate(location.state.from);
+      } else {
+        navigate(locationRef.current.state.from);
+      } 
+    };
       
-    }
 
     useEffect(() => {
 
@@ -53,13 +58,13 @@ const MovieDetails = () => {
   return (
       
     <Fragment>
-        <button className={css.backButton} onClick={goBack}>Go back</button>
+       <button className={css.backButton} onClick={goBack} >Go back</button>
         <div className={css.movieDetailsBox}>
         {movieDetailsById.poster_path && (
           <img className={css.movieImg} src={`https://image.tmdb.org/t/p/w500/${movieDetailsById.poster_path}`} alt={movieDetailsById.title} />
         )}
           <div>
-            <h2>{movieDetailsById.title} ({movieReleaseYear.slice(0,4)})</h2>
+            <h2 className={css.movieTitle}>{movieDetailsById.title} ({movieReleaseYear.slice(0,4)})</h2>
             <p>User score: <b>{Number(userScore).toFixed(2)}</b></p>
             <h3>Overview</h3>
             <p>{movieDetailsById.overview}</p>
@@ -68,13 +73,13 @@ const MovieDetails = () => {
         </div> 
         </div>
         <div>
-          <p>Additional information</p>
-          <ul>
-            <li>
-              <Link to='cast'>Cast</Link>
+          <p className={css.additionalHeader}>Additional information</p>
+          <ul className={css.additionalList}>
+            <li className={css.additionalListItem}>
+              <NavLink className={(navData) => (navData.isActive ? css.active : css.additionalLink)}to='cast'>Cast</NavLink>
             </li>
-            <li>
-              <Link to='reviews'>Reviews</Link>
+            <li className={css.additionalListItem}>
+              <NavLink className={(navData) => (navData.isActive ? css.active : css.additionalLink)} to='reviews'>Reviews</NavLink>
             </li>
           </ul>
           <Suspense fallback={<p>'Loading...'</p>}>

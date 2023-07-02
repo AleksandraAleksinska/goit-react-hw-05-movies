@@ -1,0 +1,9 @@
+.reviewListItem{
+    border-bottom: 2px solid rgb(219, 95, 0);
+    margin-right: 25px;
+    margin-bottom: 10px;    
+    list-style: none;
+}
+.reviewAuthor{
+    font-weight: bold;
+}

@@ -1,0 +1,22 @@
+.movieList{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+    
+}
+.movieListItem{
+    font-size: 16px;
+    &:hover{
+        
+        color:rgb(219, 95, 0)
+    }
+}
+.movieLink {
+    text-decoration: none;
+    color: inherit; 
+    
+    &:hover{
+        font-weight: bold;
+        color:rgb(219, 95, 0)
+    }
+}

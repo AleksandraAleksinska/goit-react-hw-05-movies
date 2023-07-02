@@ -1,7 +1,10 @@
 import React from 'react';
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import Review from './Review';
+
+
 
 const Reviews = () => {
 
@@ -29,15 +32,11 @@ const Reviews = () => {
   }, [movieId])
 
   return (
-    <Fragment>
+    
       <ul>
-      {reviewById.length > 0 ? reviewById.map((review) => {
-      return <li key={review.id}>
-        <p>Author: {review.author}</p>
-        <p> {review.content}</p>
-        </li>}): <p>'We don't have any reviews for this movie'</p>}
+      <Review reviewById={reviewById}/>
       </ul>
-    </Fragment>
+    
   )
 }
 

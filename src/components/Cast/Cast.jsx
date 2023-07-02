@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect, Fragment } from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import ActorCard from './ActorCard/ActorCard';
+import css from './Cast.module.css'
 
 const Cast = () => {
 
@@ -18,6 +20,7 @@ const Cast = () => {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${key}`);
         const movieCast = response.data.cast;
         setMovieCastById(movieCast)
+        console.log(movieCast)
       }
       catch(error) {
         console.log(error.message)
@@ -29,14 +32,8 @@ const Cast = () => {
 
   return (
     <Fragment>
-      <ul>
-      {movieCastById.map((actor) => <li key={actor.id}>
-      {actor.profile_path && (
-            <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} alt={actor.name} />
-          )}
-        <p>{actor.name}</p>
-        <p>Character: {actor.character}</p>
-        </li>)}
+      <ul className={css.castList}>
+      <ActorCard movieCastById={movieCastById}/>
       </ul>
     </Fragment>
   )
