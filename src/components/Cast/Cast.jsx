@@ -20,7 +20,6 @@ const Cast = () => {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${key}`);
         const movieCast = response.data.cast;
         setMovieCastById(movieCast)
-        console.log(movieCast)
       }
       catch(error) {
         console.log(error.message)

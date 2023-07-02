@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import css from './MovieList.module.css'
+import PropTypes from "prop-types";
+import css from './MovieList.module.css';
+
 
 const MovieList = ({movieList}) => {
     const location = useLocation()
@@ -18,3 +20,11 @@ const MovieList = ({movieList}) => {
 }
 
 export default MovieList
+
+MovieList.propTypes ={
+  movieList: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+  })),
+  
+}

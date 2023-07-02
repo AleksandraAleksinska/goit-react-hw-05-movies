@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import css from './Review.module.css'
+import PropTypes from "prop-types";
+import css from './Review.module.css';
 
 const Review = ({reviewById}) => {
   return (
@@ -14,3 +15,12 @@ const Review = ({reviewById}) => {
 }
 
 export default Review
+
+Review.propTypes ={
+  reviewById: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  })),
+  
+}
