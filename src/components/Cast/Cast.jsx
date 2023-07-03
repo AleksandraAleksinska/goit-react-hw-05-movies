@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect, Fragment } from 'react';
 import { useParams } from "react-router-dom";
-
 import ActorCard from './ActorCard/ActorCard';
 import css from './Cast.module.css';
 import { getMovieCast } from 'services/tmdbAPI';
