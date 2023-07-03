@@ -10,11 +10,12 @@ const Movies = () => {
   const [moviesByQuery, setMoviesByQuery] = useState([]);
 
   const fetchMovies = async () => {
-    
+
     try {
       const movies = await getMoviesByQuery(searchParams.get('query'));
       setMoviesByQuery(movies);
-    } catch (error) {
+    } 
+    catch (error) {
       console.log(error.message);
     }
   };

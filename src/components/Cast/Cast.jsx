@@ -17,7 +17,8 @@ const Cast = () => {
       try {
         const cast = await getMovieCast(movieId);
         setMovieCastById(cast);
-      } catch (error) {
+      } 
+      catch (error) {
         console.log(error.message);
       }
     };

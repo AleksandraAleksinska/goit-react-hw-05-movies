@@ -12,11 +12,13 @@ const Home = () => {
   
 
   useEffect(() => {
+
     const fetchMovies = async () => {
       try {
         const movies = await getTrendingMovies();
         setTrendingMovies(movies);
-      } catch (error) {
+      } 
+      catch (error) {
         console.log(error.message);
       }
     };

@@ -34,13 +34,13 @@ const MovieDetails = () => {
           const movieGenres = movieDetails.genres;
           const movieReleaseYear = movieDetails.release_date;
           const movieUserScore = movieDetails.vote_average;
-
           
           setMovieDetailsById(movieDetails);
           setMovieGenres(movieGenres);
           setMovieReleaseYear(movieReleaseYear);
           setUserScore(movieUserScore)
-        } catch (error) {
+        } 
+        catch (error) {
           console.log(error.message);
         }
       };
@@ -48,7 +48,7 @@ const MovieDetails = () => {
       fetchMovieDetails();
     }, [movieId]);
       
-    
+
 
    
   return (

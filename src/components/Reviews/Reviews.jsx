@@ -18,7 +18,8 @@ const Reviews = () => {
       try {
         const reviews = await getReviews(movieId);
         setReviewById(reviews);
-      } catch (error) {
+      } 
+      catch (error) {
         console.log(error.message);
       }
     };
