@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import { useState, useEffect, Fragment } from 'react';
 import css from './Home.module.css';
 import MovieList from 'components/MovieList/MovieList';
+import { getTrendingMovies } from 'services/tmdbAPI';
 
 
 
@@ -12,22 +12,17 @@ const Home = () => {
   
 
   useEffect(() => {
-
-   const getTrendingMovies = async() => {
-
+    const fetchMovies = async () => {
       try {
-          const key = 'dce0b8b37fbd78cdab3203c47fa0e91b';
-          const response = await axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=' + key);
-          const trendingMovies = response.data.results;
-          setTrendingMovies(trendingMovies);
+        const movies = await getTrendingMovies();
+        setTrendingMovies(movies);
+      } catch (error) {
+        console.log(error.message);
       }
-      catch(error) {
-          console.log(error.message);
-      }    
-  }   
-  getTrendingMovies();
-    
-  },[])
+    };
+
+    fetchMovies();
+  }, []);
   
   return (
     <Fragment>

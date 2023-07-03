@@ -2,7 +2,8 @@ import React from 'react';
 import { useState, useEffect, Fragment, Suspense, useRef } from 'react';
 import { useParams, NavLink, Outlet, useNavigate, useLocation } from "react-router-dom";
 import css from './MovieDetails.module.css'
-import axios from 'axios';
+
+import { getMovieDetails } from 'services/tmdbAPI';
 
 
 const MovieDetails = () => {
@@ -25,34 +26,29 @@ const MovieDetails = () => {
         navigate(locationRef.current.state.from); 
       } 
     };
-      
 
     useEffect(() => {
-
-      const getMovieDetails = async() => {
-
+      const fetchMovieDetails = async () => {
         try {
-          const key = 'dce0b8b37fbd78cdab3203c47fa0e91b';
-          const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${key}`);
-          const movieDetails = response.data;
-          const movieGenres = response.data.genres;
-          const movieReleaseYear = response.data.release_date;
-          const movieUserScore = response.data.vote_average;
-       
+          const movieDetails = await getMovieDetails(movieId);
+          const movieGenres = movieDetails.genres;
+          const movieReleaseYear = movieDetails.release_date;
+          const movieUserScore = movieDetails.vote_average;
+
+          
           setMovieDetailsById(movieDetails);
           setMovieGenres(movieGenres);
           setMovieReleaseYear(movieReleaseYear);
           setUserScore(movieUserScore)
-
+        } catch (error) {
+          console.log(error.message);
         }
-        catch(error) {
-          console.log(error.message)
-        }
-
-      }
-     getMovieDetails() 
-    }, [movieId])
+      };
   
+      fetchMovieDetails();
+    }, [movieId]);
+      
+    
 
    
   return (

@@ -1,22 +1,18 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import axios from 'axios';
 import MovieList from 'components/MovieList/MovieList';
-import css from './Movies.module.css'
+import css from './Movies.module.css';
+import { getMoviesByQuery } from 'services/tmdbAPI';
 
 const Movies = () => {
   
   const [searchParams, setSearchParams] = useSearchParams();
   const [moviesByQuery, setMoviesByQuery] = useState([]);
- 
-  const getMoviesByQuery = async () => {
- 
+
+  const fetchMovies = async () => {
+    
     try {
-      const key = 'dce0b8b37fbd78cdab3203c47fa0e91b';
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?query=${searchParams.get('query')}&api_key=${key}`
-      );
-      const movies = response.data.results;
+      const movies = await getMoviesByQuery(searchParams.get('query'));
       setMoviesByQuery(movies);
     } catch (error) {
       console.log(error.message);
@@ -32,7 +28,7 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    searchParams.get('query') && getMoviesByQuery()
+    searchParams.get('query') && fetchMovies()
   },);
 
 

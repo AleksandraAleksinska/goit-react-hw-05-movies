@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from "prop-types";
 import css from './Review.module.css';
+import { getReviews } from 'services/tmdbAPI';
 
 const Review = ({reviewById}) => {
   return (
